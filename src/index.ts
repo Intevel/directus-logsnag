@@ -1,20 +1,18 @@
+// @ts-nocheck
 import fetch from "node-fetch";
 const { api_token, events } = require("./logsnag.config.json");
 
-// @ts-ignore
-export default ({ action }, { services, exceptions, database: knex }) => {
-	// @ts-ignore
+export default ({ action }, { logger, services, exceptions, database: knex }) => {
 	events.forEach(async (event) => {
-		console.log("[LOGSNAG] Registering event: " + event.name);
-		// @ts-ignore
+		logger.info("[LOGSNAG] Registering event: " + event.name);
 		action(event.name, async ({ collection, payload }, { schema }) => {
+		    logger.info(`[LOGSNAG] ${event.name} was called.`);
 			const { ServiceUnavailableException } = exceptions;
 			try {
 				const headers = {
 					"Content-Type": "application/json",
 					Authorization: `Bearer ${api_token}`,
 				};
-				console.log("EVENT: " + event);
 				return await fetch("https://api.logsnag.com/v1/log", {
 					method: "POST",
 					headers,
@@ -28,7 +26,7 @@ export default ({ action }, { services, exceptions, database: knex }) => {
 					}),
 				});
 			} catch (error) {
-				console.log(error);
+				logger.error(error)
 				throw new ServiceUnavailableException(error);
 			}
 		});
