@@ -3,11 +3,11 @@
 # Directus LogSnag
 
 
-📢  Easily get notified when something in Directus happens.
+📢  Get notified when something in Directus happens.
 
 ## What is LogSnag?
 
-LogSnag is a simple event tracking tool. It helps you easily track what is happening within your projects, creates custom feeds, and notifies you of important events.
+LogSnag is a simple event tracking tool. It helps you keep track what is happening within your projects, creates custom feeds, and notifies you of important events.
 Register your application [here](https://logsnag.com/)
 
 ## Installation
@@ -16,9 +16,9 @@ Register your application [here](https://logsnag.com/)
 
 1. Firstly create a LogSnag account
 2. Create your LogSnag project and your channels
-3. Get your LogSnag API Token, you can find, generate or revoke your API tokens from the API page under settings.
-4. Clone this repository, and copy the file from `dist` to your directus extensions folder `/extensions/hooks/directus-logsnag/`.
-5. Now you can configure ✨
+3. Get your LogSnag API Token, from the API page under settings. Generate or revoke your API tokens there.
+4. Clone this repository, copy the file from `dist` to your directus extensions folder `/extensions/hooks/directus-logsnag/`.
+5. Now you can get started with configuring ✨
 
 ## Configuration
 Your configuration file should be in your directus extensions folder under `/extensions/hooks/directus-logsnag/logsnag.config.json`.
