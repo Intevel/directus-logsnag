@@ -1,0 +1,7 @@
+{
+	"api_token": "-",
+	"events": [
+		{ "name": "users.create", "project": "test", "channel": "nuxttest", "event": "New User!", "description": "A new Directus user was created", "icon": "🤑", "notify": true },
+		{ "name": "payments.create", "project": "test", "channel": "nuxttest", "event": "New Payment", "description": "We've got a new payment :)", "icon": "💸", "notify": true }
+	]
+}
