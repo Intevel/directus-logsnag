@@ -1,12 +1,14 @@
-// @ts-nocheck
 import fetch from "node-fetch";
 const { api_token, events } = require("./logsnag.config.json");
 
+// @ts-ignore
 export default ({ action }, { logger, services, exceptions, database: knex }) => {
+    // @ts-ignore
 	events.forEach(async (event) => {
 		logger.info("[LOGSNAG] Registering event: " + event.name);
+        // @ts-ignore
 		action(event.name, async ({ collection, payload }, { schema }) => {
-		    logger.info(`[LOGSNAG] ${event.name} was called.`);
+		    logger.info(`[LOGSNAG] ${event.name} was called, logsnag fired :D`);
 			const { ServiceUnavailableException } = exceptions;
 			try {
 				const headers = {
