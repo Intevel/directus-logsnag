@@ -24,7 +24,7 @@ export default ({ action }, { logger, services, exceptions, database: knex }) =>
 						event: event.event,
 						description: event.description,
 						icon: event.icon,
-						notify: true,
+						notify: event.notify || true,
 					}),
 				});
 			} catch (error) {
